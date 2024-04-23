@@ -5,5 +5,5 @@
 - 每日情话 -- https://api.uomg.com/api/rand.qinghua
 
 ## JavaScript脚本
-- [rmPsuhplusAd.js](blob/main/rmPsuhplusAd.js) -- 删除 Psuhplus 推送广告
+- [rmPsuhplusAd.js](/rmPsuhplusAd.js) -- 删除 Psuhplus 推送广告
 
