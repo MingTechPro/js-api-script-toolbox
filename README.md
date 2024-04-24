@@ -2,8 +2,12 @@
 ## api 推荐
 - IMGAPI 优质图片 -- https://imgapi.cn/index.html#three
 
-- 每日情话 -- https://api.uomg.com/api/rand.qinghua
+- 情话API -- https://api.uomg.com/api/rand.qinghua
 
 ## JavaScript脚本
-- [rmPsuhplusAd.js](/rmPsuhplusAd.js) -- 删除 Psuhplus 推送广告
-
+- [loveWords.js](/loveWords.js):{target="_blank"} -- 随机情话插件
+使用示例：
+```html
+<script src=""></script>
+<p id="love_words_text"></p>
+```
