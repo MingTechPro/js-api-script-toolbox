@@ -17,5 +17,9 @@ fetch('https://api.uomg.com/api/rand.qinghua')
         console.error('There is a problem with your fetch operation: ', error);
     })
     .then(data => {
-        document.getElementById("love_words_text").innerHTML = data.content;
+        if (document.getElementById("love_words_text")) {
+            document.getElementById("love_words_text").innerHTML = data.content;
+        } else {
+            console.error("找不到 ID 为 love_words_text 的元素！");
+        }
     });
