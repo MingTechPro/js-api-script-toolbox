@@ -5,9 +5,9 @@
 - 情话API -- https://api.uomg.com/api/rand.qinghua
 
 ## JavaScript脚本
-- [loveWords.js](/loveWords.js):{target="_blank"} -- 随机情话插件
+- [loveWords.js](/loveWords.js) -- 随机情话插件
 使用示例：
 ```html
-<script src=""></script>
+<script src="https://cdn.jsdelivr.net/gh/MingTechPro/js-api-script-toolbox@main/loveWords.js"></script>
 <p id="love_words_text"></p>
 ```
