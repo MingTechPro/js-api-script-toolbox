@@ -6,6 +6,7 @@
 
 ## JavaScript脚本
 - [loveWords.js](/loveWords.js) -- 随机情话插件
+
 使用示例：
 ```html
 <script src="https://cdn.jsdelivr.net/gh/MingTechPro/js-api-script-toolbox@main/loveWords.js"></script>
