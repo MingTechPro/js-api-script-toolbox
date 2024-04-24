@@ -1,6 +1,6 @@
 /*!
  * Filename: loveWords.js
- * Edition: V1.0.0
+ * Edition: V1.0.1
  * Author: MingTechPro
  * Blog：
  * Copyright © 2024 MingTechPro. All Rights Reserved.
