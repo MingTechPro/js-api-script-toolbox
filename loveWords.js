@@ -3,7 +3,7 @@
  * Edition: V1.0.1
  * Author: MingTechPro
  * Blog：
- * Copyright © 2024 MingTechPro. All Rights Reserved.
+ * Copyright © 2024 MingTechPro.
  * License: MIT & CC BY 4.0
  */
 fetch('https://api.uomg.com/api/rand.qinghua')
