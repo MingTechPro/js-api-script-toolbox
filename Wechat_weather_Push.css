@@ -1,0 +1,221 @@
+.weatherContainer {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 15px;
+  position: relative;
+  z-index: 10;
+}
+
+.header {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-title i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.card-title h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.love-note {
+  font-style: italic;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  border-left: 4px solid #ff4b91;
+  margin: 15px 0;
+  line-height: 1.8;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.weather-card h4 {
+  margin-bottom: 12px;
+  color: #ffcc00;
+  font-size: 1.2rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.weather-icon {
+  font-size: 2rem;
+  margin: 5px 0;
+  color: #ffcc00;
+}
+
+.weather-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.weather-label {
+  color: #cccccc;
+}
+
+.weather-value {
+  font-weight: 500;
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.date-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.date-card h4 {
+  margin-bottom: 10px;
+  color: #4fc3f7;
+  font-size: 1.1rem;
+}
+
+.highlight {
+  color: #00bfff;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #4fc3f7;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.last-update {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 5px;
+  color: #cccccc;
+}
+
+/* 响应式设计 */
+@media (min-width: 400px) {
+
+  .weather-grid,
+  .date-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .weatherContainer {
+    max-width: 600px;
+    padding: 30px 20px;
+  }
+
+  .weather-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .date-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 动画效果 */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.weather-card,
+.date-card {
+  transition: transform 0.3s ease;
+}
+
+.weather-card:hover,
+.date-card:hover {
+  transform: scale(1.02);
+}
+
+.highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #00bfff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.date-card:hover .highlight::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
