@@ -62,7 +62,7 @@
    font-weight: 600;
    margin-bottom: -2px;
  }
- 
+
  .love-note {
    font-style: italic;
    padding: 1rem;
@@ -148,6 +148,10 @@
    margin-top: 1.5rem;
    border-top: 1px solid rgba(255, 255, 255, 0.2);
    font-size: 0.85rem;
+ }
+
+ .footer p {
+  margin-bottom: 0 !important;
  }
 
  .footer a {
