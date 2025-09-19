@@ -87,6 +87,7 @@
 }
 
 .weather-card h4 {
+  padding: 0 0 0.5rem 0 !important;
   margin-bottom: 0.75rem;
   color: var(--accent-color);
   font-size: 1.1rem;
