@@ -17,7 +17,6 @@
 
 .header {
   text-align: center;
-  padding: 1.5rem 0;
   margin-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -73,9 +72,10 @@
   font-size: 1rem;
 }
 
+/* 默认样式（小屏幕） */
 .weather-grid {
   display: grid;
-  grid-template-columns: 1;
+  grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -122,6 +122,7 @@
   font-weight: 500;
 }
 
+/* 默认样式（小屏幕） */
 .date-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -137,9 +138,13 @@
 }
 
 .date-card h4 {
-  margin-bottom: 0.5rem;
+  padding: 0 !important;
   color: var(--secondary-color);
   font-size: 1.1rem;
+}
+
+.date-card p {
+  margin-bottom: 0 !important;
 }
 
 .highlight {
@@ -196,17 +201,19 @@
 }
 
 /* 响应式设计 */
-@media (max-width: 400px) {
+/* 中屏幕（430px-768px） */
+@media (min-width: 430px) {
   .weather-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .date-grid {
-    grid-template-columns: 1fr;
+  /* 确保生活指数卡片占据整行 */
+  .weather-grid .weather-card:last-child {
+    grid-column: span 2;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) {
   .weatherContainer {
     padding: 0.75rem;
   }
@@ -240,27 +247,38 @@
     white-space: nowrap;
   }
 
-  .weather-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .date-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* 确保恋爱纪念卡片占据整行 */
+  .date-grid .date-card:first-child {
+    grid-column: span 2;
+  }
 }
 
-/* 平板和更大屏幕 */
+/* 大屏幕（768px以上） */
 @media (min-width: 768px) {
   .weatherContainer {
     padding: 1.5rem;
   }
 
   .weather-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 恢复生活指数卡片的正常跨度 */
+  .weather-grid .weather-card:last-child {
+    grid-column: auto;
   }
 
   .date-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 恢复恋爱纪念卡片的正常跨度 */
+  .date-grid .date-card:first-child {
+    grid-column: auto;
   }
 }
 
