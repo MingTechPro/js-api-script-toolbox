@@ -1,278 +1,438 @@
+/* ===== CSS变量定义 ===== */
+/* 使用CSS变量便于统一管理和修改主题颜色 */
 :root {
   --primary-color: #ff4b91;
+  /* 主色调 - 粉色，用于强调和爱心元素 */
   --secondary-color: #00bfff;
+  /* 次要色调 - 蓝色，用于高亮文本和链接 */
   --accent-color: #ffcc00;
+  /* 强调色 - 黄色，用于标题和图标 */
   --card-bg: rgba(255, 255, 255, 0.1);
+  /* 卡片背景 - 半透明白色，毛玻璃效果基础 */
   --text-color: #fff;
+  /* 文字颜色 - 白色，确保在深色背景上可读 */
   --border-radius: 16px;
+  /* 圆角半径 - 统一卡片圆角大小 */
 }
 
+/* ===== 全局样式重置 ===== */
+/* 确保所有元素使用border-box盒模型，避免padding影响元素尺寸计算 */
 * {
   box-sizing: border-box;
+  /* 使元素的padding和border包含在width和height内 */
   margin: 0;
+  /* 移除所有默认外边距 */
   padding: 0;
+  /* 移除所有默认内边距 */
 }
 
+/* ===== 主容器样式 ===== */
 .weatherContainer {
   max-width: 100%;
+  /* 容器最大宽度为100%，适应移动设备 */
   padding: 1rem;
+  /* 内边距1rem，提供呼吸空间 */
   position: relative;
+  /* 相对定位，为子元素定位提供参考 */
   z-index: 10;
+  /* 较高z-index，确保内容在背景之上 */
 }
 
+/* ===== 头部样式 ===== */
 .header {
   text-align: center;
+  /* 文本居中 */
   margin-bottom: 1rem;
+  /* 底部外边距1rem，与下方内容分隔 */
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  /* 底部半透明边框，视觉分隔 */
 }
 
 .header h1 {
   font-size: 1.8rem;
+  /* 主标题字体大小 */
   margin-bottom: 0.5rem;
+  /* 底部外边距，与副标题分隔 */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* 文字阴影，增强在背景图上的可读性 */
 }
 
 .header p {
   font-size: 1rem;
+  /* 副标题字体大小 */
   opacity: 0.9;
+  /* 轻微透明度，创造层次感 */
 }
 
+/* ===== 卡片基础样式 ===== */
 .card {
   background: var(--card-bg);
+  /* 使用CSS变量定义的半透明背景 */
   backdrop-filter: blur(10px);
+  /* 毛玻璃效果 - 标准属性 */
   -webkit-backdrop-filter: blur(10px);
+  /* 毛玻璃效果 - Webkit前缀，兼容iOS */
   border-radius: var(--border-radius);
+  /* 统一圆角 */
   padding: 1.25rem;
+  /* 内边距，内容与边框的间距 */
   margin-bottom: 1.5rem;
+  /* 卡片间垂直间距 */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* 柔和阴影，增加立体感 */
   border: 1px solid rgba(255, 255, 255, 0.15);
+  /* 半透明边框，增强卡片轮廓 */
 }
 
+/* ===== 卡片标题样式 ===== */
 .card-title {
   display: flex;
+  /* 弹性布局，图标和标题水平排列 */
   align-items: center;
+  /* 垂直居中对齐 */
   margin-bottom: 1rem;
+  /* 底部外边距，与卡片内容分隔 */
   padding-bottom: 0.75rem;
+  /* 底部内边距，为下划线创造空间 */
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  /* 底部半透明边框，视觉分隔 */
 }
 
 .card-title i {
   margin-right: 0.75rem;
+  /* 图标右侧间距，与标题分隔 */
   font-size: 1.4rem;
+  /* 图标大小 */
 }
 
 .card-title h3 {
   font-size: 1.25rem;
+  /* 卡片标题字体大小 */
   font-weight: 600;
+  /* 字体粗细，中等加粗 */
   margin-bottom: -2px;
+  /* 微调底部外边距，精确控制标题位置 */
 }
 
+/* ===== 情话样式 ===== */
 .love-note {
   font-style: italic;
+  /* 斜体字体，增加情感表达 */
   padding: 1rem;
+  /* 内边距，创造呼吸空间 */
   background: rgba(255, 255, 255, 0.08);
+  /* 轻微半透明背景，突出情话内容 */
   border-radius: 10px;
+  /* 圆角，柔和边缘 */
   border-left: 4px solid var(--primary-color);
+  /* 左侧主色调边框，视觉强调 */
   margin: 1rem 0;
+  /* 上下外边距，与周围内容分隔 */
   line-height: 1.7;
+  /* 行高，提高可读性 */
   font-size: 1rem;
+  /* 字体大小 */
 }
 
-/* 使用Flexbox替代Grid布局 */
+/* ===== 天气网格布局 - 使用Flexbox替代Grid提高微信兼容性 ===== */
 .weather-grid {
   display: flex;
+  /* 弹性布局替代Grid */
   flex-wrap: wrap;
+  /* 允许子项换行 */
   margin: -0.5rem;
-  margin-top: 1rem;
+  /* 负外边距，抵消子项外边距 */
 }
 
+/* 天气卡片基础样式 */
 .weather-card {
   background: rgba(255, 255, 255, 0.08);
+  /* 半透明白色背景 */
   padding: 1rem;
+  /* 内边距 */
   border-radius: 12px;
+  /* 圆角 */
   margin: 0.5rem;
+  /* 外边距，卡片间距 */
   flex: 1 1 calc(100% - 1rem);
+  /* 默认占满整行，减去外边距 */
 }
 
 .weather-card h4 {
   padding: 0 0 0.5rem 0 !important;
+  /* 底部内边距，与内容分隔 */
   margin-bottom: 0.75rem;
+  /* 底部外边距 */
   color: var(--accent-color);
+  /* 使用强调色 */
   font-size: 1.1rem;
+  /* 字体大小 */
   padding-bottom: 0.5rem;
+  /* 底部内边距，为下划线创造空间 */
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  /* 底部半透明边框 */
 }
 
+/* ===== 天气信息行样式 ===== */
 .weather-info {
   display: flex;
+  /* 弹性布局，标签和值水平排列 */
   justify-content: space-between;
+  /* 两端对齐，标签左对齐，值右对齐 */
   margin: 0.5rem 0;
+  /* 上下外边距，行间距 */
   font-size: 0.95rem;
+  /* 字体大小 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  /* 底部半透明边框，行分隔线 */
 }
 
 .weather-icon {
   width: 32px;
+  /* 天气图标宽度 */
   height: 32px;
+  /* 天气图标高度 */
   margin-bottom: -6px;
-  margin-top: -6px;
+  /* 负外边距，微调图标垂直位置 */
+  margin-top: -16px;
+  /* 负外边距，微调图标垂直位置 */
 }
 
 .weather-label {
   color: #cccccc;
+  /* 标签文字颜色，浅灰色 */
 }
 
 .weather-value {
   font-weight: 500;
+  /* 值文字粗细，中等加粗 */
 }
 
-/* 使用Flexbox替代Grid布局 */
+/* ===== 日期网格布局 - 使用Flexbox替代Grid提高微信兼容性 ===== */
 .date-grid {
   display: flex;
+  /* 弹性布局 */
   flex-wrap: wrap;
+  /* 允许子项换行 */
   margin: -0.5rem;
+  /* 负外边距，抵消子项外边距 */
   margin-top: 1rem;
+  /* 顶部外边距，与上方内容分隔 */
 }
 
+/* 日期卡片基础样式 */
 .date-card {
   background: rgba(255, 255, 255, 0.08);
+  /* 半透明白色背景 */
   padding: 1rem;
+  /* 内边距 */
   border-radius: 12px;
+  /* 圆角 */
   text-align: center;
+  /* 文本居中 */
   margin: 0.5rem;
+  /* 外边距，卡片间距 */
+}
+
+/* 恋爱纪念卡片单独占一行 */
+.date-card:first-child {
   flex: 1 1 calc(100% - 1rem);
+  /* 占满整行，减去外边距 */
+}
+
+/* 两个生日卡片各占一半宽度 */
+.date-card:not(:first-child) {
+  flex: 1 1 calc(50% - 1rem);
+  /* 各占50%宽度，减去外边距 */
 }
 
 .date-card h4 {
   padding: 0 !important;
+  /* 移除内边距 */
   color: var(--secondary-color);
+  /* 使用次要色调 */
   font-size: 1.1rem;
+  /* 字体大小 */
 }
 
 .date-card p {
   margin-bottom: 0 !important;
+  /* 移除底部外边距 */
 }
 
+/* ===== 高亮文本样式 ===== */
 .highlight {
   color: var(--secondary-color);
+  /* 使用次要色调 */
   font-weight: bold;
+  /* 粗体强调 */
   font-size: 1.2rem;
+  /* 稍大字体大小 */
 }
 
+/* ===== 页脚样式 ===== */
 .footer {
   text-align: center;
+  /* 文本居中 */
   padding: 1.5rem 0 0;
+  /* 内边距，顶部较多空间 */
   margin-top: 1.5rem;
+  /* 顶部外边距，与上方内容分隔 */
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+  /* 顶部半透明边框，视觉分隔 */
   font-size: 0.85rem;
+  /* 较小字体大小 */
 }
 
 .footer p {
   margin-bottom: 0 !important;
+  /* 移除底部外边距 */
 }
 
 .footer a {
   color: var(--secondary-color);
+  /* 使用次要色调 */
   text-decoration: none;
+  /* 移除下划线 */
   padding: 0.25rem;
+  /* 内边距，增加点击区域 */
   display: inline-block;
+  /* 保持内联但可设置padding */
 }
 
 .footer a:hover {
   text-decoration: underline;
+  /* 鼠标悬停时显示下划线 */
 }
 
+/* ===== 最后更新时间样式 ===== */
 .last-update {
   font-size: 0.8rem;
+  /* 较小字体大小 */
   opacity: 0.7;
+  /* 透明度，视觉上次要 */
   margin-top: 0.5rem;
+  /* 顶部外边距，与上方内容分隔 */
   color: #cccccc;
+  /* 浅灰色文字 */
 }
 
+/* ===== 外部链接样式 ===== */
 .external-link {
   display: block;
+  /* 块级元素 */
   text-align: center;
+  /* 文本居中 */
   margin-top: 1rem;
+  /* 顶部外边距 */
   padding: 0.75rem;
+  /* 内边距，增加点击区域 */
   background: rgba(255, 255, 255, 0.1);
+  /* 半透明背景 */
   border-radius: 12px;
+  /* 圆角 */
   color: var(--secondary-color);
+  /* 使用次要色调 */
   text-decoration: none;
+  /* 移除下划线 */
   font-weight: 500;
+  /* 中等字体粗细 */
   min-height: 44px;
+  /* 最小高度，触摸友好的尺寸 */
   display: flex;
+  /* 弹性布局 */
   align-items: center;
+  /* 垂直居中 */
   justify-content: center;
+  /* 水平居中 */
 }
 
-/* 响应式设计 - 使用Flexbox替代Grid */
-@media (min-width: 430px) {
+/* ===== 响应式设计 - 适配不同屏幕尺寸 ===== */
+
+/* 中等屏幕（440px以上） */
+@media (min-width: 440px) {
   .weather-card {
     flex: 1 1 calc(50% - 1rem);
-  }
-
-  .date-card {
-    flex: 1 1 calc(50% - 1rem);
+    /* 两列布局，各占50%宽度 */
   }
 }
 
+/* 较大屏幕（480px以上） */
 @media (min-width: 480px) {
   .weatherContainer {
     padding: 0.75rem;
+    /* 减少内边距 */
   }
 
   .header {
     padding: 1rem 0;
+    /* 增加头部内边距 */
   }
 
   .header h1 {
     font-size: 1.6rem;
+    /* 调整主标题字体大小 */
   }
 
   .card {
     padding: 1rem;
+    /* 调整卡片内边距 */
     margin-bottom: 1.25rem;
+    /* 调整卡片底部外边距 */
   }
 
   .card-title h3 {
     font-size: 1.1rem;
+    /* 调整卡片标题字体大小 */
   }
 
   .weather-info,
   .love-note {
     font-size: 0.9rem;
+    /* 调整字体大小 */
   }
 }
 
+/* 大屏幕（768px以上 - 平板/电脑） */
 @media (min-width: 768px) {
   .weatherContainer {
     padding: 1.5rem;
+    /* 增加内边距 */
   }
 
   .weather-card {
     flex: 1 1 calc(33.333% - 1rem);
+    /* 三列布局，各占33.333%宽度 */
   }
 
+  /* 在大屏幕上，三个日期卡片并排显示 */
   .date-card {
-    flex: 1 1 calc(33.333% - 1rem);
+    flex: 1 1 calc(33.333% - 1rem) !important;
+    /* 三列布局，覆盖之前的规则 */
   }
 }
 
-/* 动画效果 */
+/* ===== 动画效果 ===== */
 .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* 平滑过渡效果 */
 }
 
 .card:hover {
   transform: translateY(-5px);
+  /* 鼠标悬停时向上移动5px */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  /* 增强阴影效果 */
 }
 
 .weather-card,
 .date-card {
   transition: transform 0.3s ease;
+  /* 平滑过渡效果 */
 }
 
 .weather-card:hover,
 .date-card:hover {
   transform: scale(1.02);
+  /* 鼠标悬停时轻微放大 */
 }
